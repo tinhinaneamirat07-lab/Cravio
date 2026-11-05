@@ -36,7 +36,7 @@ const en: Messages = {
     retry: 'Try again',
     empty: 'Nothing found here. Try another category or another city.',
     stale: 'OpenStreetMap is not answering: here are last week’s places.',
-    map: 'Map of places',
+    more: 'Show more places',
     see: 'See the place',
     directions: 'Directions',
     call: 'Call',

@@ -34,7 +34,7 @@ const fr = {
     retry: 'Réessayer',
     empty: 'Rien trouvé ici. Essaie une autre catégorie ou une autre ville.',
     stale: 'OpenStreetMap ne répond pas : voici les lieux de la semaine dernière.',
-    map: 'Carte des lieux',
+    more: 'Voir plus de lieux',
     see: 'Voir le lieu',
     directions: 'Y aller',
     call: 'Appeler',
