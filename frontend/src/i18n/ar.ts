@@ -2,6 +2,14 @@ import type { Messages } from './fr'
 
 const ar: Messages = {
   nav: {
+    home: 'الرئيسية',
+    cook: 'اطبخ',
+    go: 'اخرج',
+    account: 'الحساب',
+    recipes: 'الوصفات',
+    fridge: 'الثلاجة',
+    favorites: 'المفضلة',
+    main: 'التنقل الرئيسي',
     explore: 'استكشف',
     planner: 'المخطّط',
     shopping: 'المشتريات',
@@ -11,6 +19,12 @@ const ar: Messages = {
     menu: 'القائمة',
     theme: 'تغيير المظهر',
     language: 'اللغة',
+  },
+  go: {
+    eyebrow: 'قريبًا',
+    title: 'الخرجات قادمة قريبًا جدًا',
+    body: 'مقاهٍ ومطاعم وشواطئ وحدائق حولك، على خريطة، مع الطقس والآراء. هذا الجزء يأتي في المرحلة القادمة.',
+    cta: 'في الانتظار، نطبخ؟',
   },
   hero: {
     eyebrow: 'مساعدك في الطبخ، بثلاث لغات',

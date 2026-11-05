@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "@fontsource-variable/fraunces/full.css";
-@import "@fontsource-variable/fraunces/full-italic.css";
+@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/playfair-display/wght-italic.css";
 @import "@fontsource/amiri/400.css";
 @import "@fontsource/amiri/700.css";
 @import "@fontsource-variable/readex-pro";
@@ -8,81 +8,82 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
-  Cravio design tokens · "Terracotta table"
-  Four colors, one job each: Burgundy Wine = brand, Copper Tulip = action,
-  Apricot = highlight, Moss Green = fresh and done. Linen neutrals, no pure black or white.
-  Radius: thumbnails 8, inputs 12, cards 16, panels and dialogs 28, buttons and chips pill.
-  Big photos use the arch (fully rounded top). Always pair a fill with its on-… token.
+  Cravio design tokens · "Figue et cacao"
+  Cream and chocolate neutrals. Beetroot = brand (logo, dark panels, the assistant).
+  Rust = cooking (primary/copper/link), sage = going out (moss), blueberry = highlight (apricot).
+  Token names are kept from Nuvia so every page switches palette at once; their roles are above.
+  Shapes: the "fig corner" (.fig cooking, .fig-go going out) on cards, the arch on big photos.
+  Always pair a fill with its on-… token (all pairs checked at 4.5:1 or more).
 */
 :root {
-  --bg: #fbf6ef;
-  --surface: #fffdf9;
-  --surface-sunken: #f4ece1;
-  --surface-raised: #ffffff;
-  --line: #e8ddcf;
-  --line-strong: #9c8674;
-  --ink: #2b211d;
-  --ink-muted: #6b5a50;
-  --brand: #6a1f3a;
-  --brand-deep: #4a1628;
-  --on-brand: #f7eee6;
-  --on-brand-muted: #dcc3c9;
-  --copper: #ce5a43;
-  --primary: #b5472f;
-  --primary-hover: #963a25;
-  --on-primary: #fffbf6;
-  --primary-soft: #fbe4dc;
-  --link: #a8412b;
-  --apricot: #f09567;
-  --on-apricot: #2b211d;
-  --apricot-soft: #fce1d0;
-  --apricot-ink: #8a3a1c;
-  --moss: #899063;
-  --on-moss: #fffdf9;
-  --moss-soft: #e7e9d6;
-  --moss-ink: #4f5537;
+  --bg: #f7f2e6;
+  --surface: #fffcf5;
+  --surface-sunken: #efe7ca;
+  --surface-raised: #fffefa;
+  --line: #e6dcc4;
+  --line-strong: #8c7660;
+  --ink: #34211b;
+  --ink-muted: #6e5a4c;
+  --brand: #5b2018;
+  --brand-deep: #5b2018;
+  --on-brand: #fffcf5;
+  --on-brand-muted: #e4c9c2;
+  --copper: #9a4a0b;
+  --primary: #9a4a0b;
+  --primary-hover: #7e3c08;
+  --on-primary: #fffcf5;
+  --primary-soft: #f3e3d3;
+  --link: #9a4a0b;
+  --apricot: #a0beda;
+  --on-apricot: #34211b;
+  --apricot-soft: #dce6f0;
+  --apricot-ink: #2e4a66;
+  --moss: #55695f;
+  --on-moss: #fffcf5;
+  --moss-soft: #e1e8e0;
+  --moss-ink: #3f5048;
   --danger: #a3281f;
-  --danger-soft: #fbe3df;
-  --logo: #6a1f3a;
-  --focus: #6a1f3a;
-  --overlay: rgb(43 20 26 / 0.56);
-  --shadow-sm: 0 1px 2px rgb(74 22 40 / 0.06), 0 2px 8px rgb(74 22 40 / 0.05);
-  --shadow-md: 0 2px 4px rgb(74 22 40 / 0.06), 0 12px 28px -8px rgb(74 22 40 / 0.16);
-  --shadow-lg: 0 24px 60px -16px rgb(74 22 40 / 0.28);
+  --danger-soft: #f7e1dc;
+  --logo: #5b2018;
+  --focus: #5b2018;
+  --overlay: rgb(36 20 14 / 0.56);
+  --shadow-sm: 0 1px 2px rgb(52 33 27 / 0.06), 0 2px 8px rgb(52 33 27 / 0.05);
+  --shadow-md: 0 2px 4px rgb(52 33 27 / 0.06), 0 12px 28px -8px rgb(52 33 27 / 0.18);
+  --shadow-lg: 0 24px 60px -16px rgb(52 33 27 / 0.32);
 }
 
 .dark {
-  --bg: #1a1214;
-  --surface: #241a1c;
-  --surface-sunken: #140e0f;
-  --surface-raised: #2e2224;
-  --line: #3d2e2f;
-  --line-strong: #8a7671;
-  --ink: #f5ece4;
-  --ink-muted: #c2b1a7;
-  --brand: #e9a7b9;
-  --brand-deep: #3b1322;
-  --on-brand: #f5ece4;
-  --on-brand-muted: #d4bcc2;
-  --copper: #e8795f;
-  --primary: #e8795f;
-  --primary-hover: #f08e76;
-  --on-primary: #1a1214;
-  --primary-soft: #40211b;
-  --link: #f29a82;
-  --apricot: #f4a57c;
-  --on-apricot: #1a1214;
-  --apricot-soft: #3e2519;
-  --apricot-ink: #f7bea0;
-  --moss: #a9b07f;
-  --on-moss: #1a1214;
-  --moss-soft: #2a2c1e;
-  --moss-ink: #c3c99a;
+  --bg: #1a1411;
+  --surface: #241b17;
+  --surface-sunken: #120e0c;
+  --surface-raised: #30241e;
+  --line: #3a2c24;
+  --line-strong: #8a7766;
+  --ink: #efe7ca;
+  --ink-muted: #bca98f;
+  --brand: #e39a8b;
+  --brand-deep: #3a1a16;
+  --on-brand: #efe7ca;
+  --on-brand-muted: #cbb3a6;
+  --copper: #e3935a;
+  --primary: #e3935a;
+  --primary-hover: #eba574;
+  --on-primary: #1a1411;
+  --primary-soft: #3a2618;
+  --link: #e3935a;
+  --apricot: #a0beda;
+  --on-apricot: #1a1411;
+  --apricot-soft: #22303d;
+  --apricot-ink: #c3d6ea;
+  --moss: #a7bba6;
+  --on-moss: #1a1411;
+  --moss-soft: #26302a;
+  --moss-ink: #c2d1c1;
   --danger: #f08a7e;
   --danger-soft: #3a1a18;
-  --logo: #e8795f;
-  --focus: #f4a57c;
-  --overlay: rgb(8 4 5 / 0.72);
+  --logo: #e39a8b;
+  --focus: #e39a8b;
+  --overlay: rgb(8 5 4 / 0.72);
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
   --shadow-md: 0 2px 4px rgb(0 0 0 / 0.4), 0 12px 28px -8px rgb(0 0 0 / 0.55);
   --shadow-lg: 0 24px 60px -16px rgb(0 0 0 / 0.7);
@@ -121,7 +122,7 @@
   --color-focus: var(--focus);
   --color-overlay: var(--overlay);
   --font-sans: "Readex Pro Variable", "Readex Pro", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces Variable", "Fraunces", "Amiri", Georgia, serif;
+  --font-display: "Playfair Display Variable", "Playfair Display", "Amiri", Georgia, serif;
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
@@ -164,12 +165,39 @@
   h2,
   .font-display {
     font-family: var(--font-display);
-    font-variation-settings: "SOFT" 50;
   }
 }
 
 .shadow-soft {
   box-shadow: var(--shadow-md);
+}
+
+/* Cravio's signature: the "fig corner", one sharp corner on a soft card.
+   Cooking cards point bottom-start, going-out cards point top-start (mirrored in Arabic). */
+.fig {
+  border-radius: 28px 28px 28px 8px;
+  border-end-start-radius: 8px;
+  border-end-end-radius: 28px;
+  border-start-start-radius: 28px;
+  border-start-end-radius: 28px;
+}
+.fig-go {
+  border-radius: 8px 28px 28px 28px;
+  border-start-start-radius: 8px;
+  border-start-end-radius: 28px;
+  border-end-start-radius: 28px;
+  border-end-end-radius: 28px;
+}
+
+/* Cards rise a little on hover (pointer devices only). */
+@media (hover: hover) {
+  .lift {
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+  }
+  .lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 /* The signature shape: fully rounded top, soft feet (a nod to Maghrebi doorways). */
@@ -230,7 +258,21 @@ html[lang="ar"] .eyebrow {
   animation: mic-pulse 1.6s ease-out infinite;
 }
 
+/* The assistant button breathes softly so it is easy to find. */
+@keyframes ai-ring {
+  from {
+    box-shadow: 0 0 0 0 rgb(91 32 24 / 0.35);
+  }
+  to {
+    box-shadow: 0 0 0 14px rgb(91 32 24 / 0);
+  }
+}
+.ai-ring {
+  animation: ai-ring 2.4s ease-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .ai-ring,
   .wave-bar,
   .mic-pulse {
     animation: none !important;

@@ -2,6 +2,14 @@ import type { Messages } from './fr'
 
 const en: Messages = {
   nav: {
+    home: 'Home',
+    cook: 'Cook',
+    go: 'Go out',
+    account: 'Account',
+    recipes: 'Recipes',
+    fridge: 'Fridge',
+    favorites: 'Favorites',
+    main: 'Main navigation',
     explore: 'Explore',
     planner: 'Planner',
     shopping: 'Shopping',
@@ -11,6 +19,12 @@ const en: Messages = {
     menu: 'Menu',
     theme: 'Toggle theme',
     language: 'Language',
+  },
+  go: {
+    eyebrow: 'Coming soon',
+    title: 'Going out is coming very soon',
+    body: 'Cafés, restaurants, beaches and parks around you, on a map, with the weather and reviews. This part arrives in the next step.',
+    cta: 'Meanwhile, shall we cook?',
   },
   hero: {
     eyebrow: 'Your cooking assistant, in 3 languages',

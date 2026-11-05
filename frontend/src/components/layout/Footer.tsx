@@ -10,7 +10,8 @@ export function Footer() {
     {
       title: t('footer.product'),
       links: [
-        { to: '/explore', label: t('nav.explore') },
+        { to: '/explore', label: t('nav.cook') },
+        { to: '/go', label: t('nav.go') },
         { to: '/planner', label: t('nav.planner') },
         { to: '/shopping', label: t('nav.shopping') },
         { to: '/assistant', label: t('nav.assistant') },

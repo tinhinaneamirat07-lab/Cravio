@@ -11,6 +11,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { path: '/', element: <Landing /> },
+      { path: '/go', lazy: page(() => import('@/pages/Go')) },
       { path: '/explore', lazy: page(() => import('@/pages/Explore')) },
       { path: '/recipes/:slug', lazy: page(() => import('@/pages/RecipeDetail')) },
       { path: '/favorites', lazy: page(() => import('@/pages/Favorites')) },

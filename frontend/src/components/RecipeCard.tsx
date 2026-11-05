@@ -47,7 +47,7 @@ export function RecipeCard({ recipe, className }: { recipe: RecipeSummary; class
   return (
     <div className={cn('relative', className)}>
       <Link to={`/recipes/${recipe.slug}`} className="group block">
-        <div className="relative overflow-hidden rounded-2xl bg-surface-sunken">
+        <div className="fig lift relative overflow-hidden bg-surface-sunken">
           <RecipeImage
             src={recipe.image_url}
             className="aspect-[4/5] w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
@@ -82,7 +82,7 @@ export function RecipeCard({ recipe, className }: { recipe: RecipeSummary; class
 export function RecipeCardSkeleton() {
   return (
     <div aria-hidden="true">
-      <div className="aspect-[4/5] w-full animate-pulse rounded-2xl bg-surface-sunken" />
+      <div className="fig aspect-[4/5] w-full animate-pulse bg-surface-sunken" />
       <div className="mt-3 h-4 w-3/4 animate-pulse rounded bg-surface-sunken" />
       <div className="mt-2 h-4 w-1/3 animate-pulse rounded bg-surface-sunken" />
     </div>

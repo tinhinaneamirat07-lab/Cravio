@@ -1,5 +1,13 @@
 const fr = {
   nav: {
+    home: 'Accueil',
+    cook: 'Cuisiner',
+    go: 'Sortir',
+    account: 'Compte',
+    recipes: 'Recettes',
+    fridge: 'Frigo',
+    favorites: 'Favoris',
+    main: 'Navigation principale',
     explore: 'Explorer',
     planner: 'Planner',
     shopping: 'Courses',
@@ -9,6 +17,12 @@ const fr = {
     menu: 'Menu',
     theme: 'Changer le thème',
     language: 'Langue',
+  },
+  go: {
+    eyebrow: 'Bientôt',
+    title: 'Sortir, c’est pour très vite',
+    body: 'Cafés, restos, plages et parcs autour de toi, sur une carte, avec la météo et les avis. Cette partie arrive à la prochaine étape.',
+    cta: 'En attendant, on cuisine ?',
   },
   hero: {
     eyebrow: 'Ton assistant cuisine, en 3 langues',
