@@ -104,3 +104,60 @@ export type PantryMatch = {
   have: string[]
   missing: string[]
 }
+
+// --- Going out (places from OpenStreetMap) ---
+
+export type PlaceCategory =
+  | 'cafe'
+  | 'restaurant'
+  | 'cinema'
+  | 'shopping'
+  | 'park'
+  | 'activity'
+  | 'hotel'
+  | 'beach'
+  | 'attraction'
+  | 'parking'
+
+export type PlacePhoto = { thumb_url: string; page_url: string | null; author: string | null; license: string | null }
+
+export type Place = {
+  id: string
+  name: string
+  category: string
+  latitude: number
+  longitude: number
+  address: string | null
+  tags: Record<string, string>
+  distance_m: number | null
+  photo: PlacePhoto | null
+}
+
+export type PlaceDetail = Place & { rating_average: number | null; rating_count: number; is_favorite: boolean }
+
+export type NearbyPage = {
+  places: Place[]
+  total: number
+  limit: number
+  offset: number
+  source: 'database' | 'openstreetmap'
+  stale: boolean
+}
+
+export type PlaceReview = { id: number; author: string; rating: number; comment: string; created_at: string; mine: boolean }
+export type PlaceReviews = { average: number | null; count: number; reviews: PlaceReview[] }
+
+export type PlaceInfo = {
+  info: {
+    price_min: number | null
+    price_max: number | null
+    group_min: number | null
+    group_max: number | null
+    good_for: string[]
+  } | null
+  menu: { id: number; name: string; price: number }[]
+  can_edit: boolean
+}
+
+export type WeatherCondition = 'rain' | 'cold' | 'windy' | 'hot' | 'nice' | 'ok'
+export type Weather = { temperature: number; wind_kmh: number; is_day: boolean; condition: WeatherCondition }
