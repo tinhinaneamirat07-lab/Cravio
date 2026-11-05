@@ -1,0 +1,123 @@
+const fr = {
+  nav: {
+    explore: 'Explorer',
+    planner: 'Planner',
+    shopping: 'Courses',
+    assistant: 'Assistant',
+    login: 'Se connecter',
+    start: 'Commencer',
+    menu: 'Menu',
+    theme: 'Changer le thème',
+    language: 'Langue',
+  },
+  hero: {
+    eyebrow: 'Ton assistant cuisine, en 3 langues',
+    trust: { free: 'Gratuit, sans carte bancaire', recipes: '300+ recettes' },
+    title: 'Tes repas de la semaine, planifiés en deux minutes.',
+    highlight: 'deux minutes',
+    subtitle:
+      'Donne à Cravio le contenu de ton frigo : il prépare ton menu, tes courses et te guide à la voix.',
+    secondary: 'Voir les recettes',
+    imageAlt: 'Un bol de chorba frik servi avec des bourek',
+    card: {
+      day: 'Mardi, dîner',
+      recipe: 'Chorba frik',
+      meta: '35 min, 4 personnes',
+      status: 'Ajouté au planner',
+    },
+  },
+  features: {
+    eyebrow: 'Comment ça aide',
+    title: 'Du frigo à l’assiette, sans prise de tête.',
+    planner: {
+      title: 'Une semaine planifiée',
+      body: 'Place tes recettes dans la semaine ou laisse Cravio composer un menu équilibré selon ton budget.',
+      imageAlt: 'Ratatouille en spirale dans une cocotte',
+    },
+    pantry: {
+      title: 'Cuisine avec ce que tu as',
+      body: 'Les recettes sont classées selon ce qu’il te manque. Moins de gaspillage, moins de courses.',
+      imageAlt: 'Salade de crudités fraîches',
+    },
+    shopping: {
+      title: 'Liste de courses automatique',
+      body: 'Les quantités de la semaine, réunies et triées par rayon.',
+      items: [
+        { name: 'Frik', qty: '250 g' },
+        { name: 'Tomates', qty: '6' },
+        { name: 'Coriandre', qty: '1 botte' },
+        { name: 'Poulet', qty: '1 kg' },
+      ],
+    },
+    voice: {
+      title: 'Les mains dans la farine ? Parle.',
+      body: 'Demande l’étape suivante, un minuteur ou une substitution sans toucher l’écran.',
+    },
+    languages: {
+      title: 'Pensé en trois langues',
+      body: 'Toute l’interface passe en arabe, de droite à gauche.',
+    },
+  },
+  assistant: {
+    eyebrow: 'Assistant vocal',
+    step: 'Étape 1 sur 5',
+    title: 'Un assistant qui connaît vraiment la cuisine.',
+    body: 'Avant de répondre, il cherche dans la base de recettes de Cravio. Tu parles, il répond dans ta langue.',
+    listening: 'Cravio écoute',
+    name: 'Cravio',
+    chat: [
+      { from: 'user', text: 'J’ai du frik et du poulet, je fais quoi ce soir ?' },
+      {
+        from: 'bot',
+        text: 'Une chorba frik : 35 minutes pour 4 personnes. Tu as de la coriandre et du concentré de tomate ?',
+      },
+      { from: 'user', text: 'Oui, on commence.' },
+      {
+        from: 'bot',
+        text: 'Coupe le poulet en petits morceaux et fais-le revenir 5 minutes avec l’oignon. Je lance un minuteur ?',
+      },
+    ],
+    imageAlt: 'Pièce de bœuf grillée au feu de bois',
+  },
+  recipes: {
+    eyebrow: 'Cette semaine sur Cravio',
+    title: 'Recettes du moment',
+    all: 'Tout voir',
+    minutes: '{{count}} min',
+    difficulty: { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' },
+    previous: 'Recettes précédentes',
+    next: 'Recettes suivantes',
+  },
+  maghreb: {
+    eyebrow: 'Cuisine maghrébine',
+    highlight: 'à l’honneur',
+    dishes: ['Chorba frik', 'Rechta', 'Mhadjeb', 'Couscous', 'Tajine zitoune'],
+    cta: 'Explorer les recettes maghrébines',
+    title: 'La cuisine d’ici, à l’honneur.',
+    body: 'Chorba, rechta, mhadjeb, couscous : des recettes maghrébines écrites avec soin, en arabe et en français.',
+    imageAlt: 'Pains et viennoiseries sortis du four',
+  },
+  cta: {
+    button: 'Planifier ma semaine',
+    title: 'Ta première semaine de repas t’attend.',
+    body: 'Gratuit, sans carte bancaire.',
+  },
+  footer: {
+    language: 'Langue',
+    tagline: 'L’assistant cuisine qui planifie, fait les courses et te guide.',
+    product: 'Produit',
+    company: 'Cravio',
+    about: 'À propos',
+    privacy: 'Confidentialité',
+    terms: 'Conditions',
+    rights: '© 2026 Cravio. Projet open source.',
+  },
+  notFound: {
+    title: 'Cette page n’est pas encore cuisinée.',
+    body: 'Elle arrive dans une prochaine étape du projet.',
+    back: 'Retour à l’accueil',
+  },
+}
+
+export default fr
+export type Messages = typeof fr

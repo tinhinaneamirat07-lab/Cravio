@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/fraunces/full-italic.css";
+@import "@fontsource/amiri/400.css";
+@import "@fontsource/amiri/700.css";
+@import "@fontsource-variable/readex-pro";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Cravio design tokens · "Terracotta table"
+  Four colors, one job each: Burgundy Wine = brand, Copper Tulip = action,
+  Apricot = highlight, Moss Green = fresh and done. Linen neutrals, no pure black or white.
+  Radius: thumbnails 8, inputs 12, cards 16, panels and dialogs 28, buttons and chips pill.
+  Big photos use the arch (fully rounded top). Always pair a fill with its on-… token.
+*/
+:root {
+  --bg: #fbf6ef;
+  --surface: #fffdf9;
+  --surface-sunken: #f4ece1;
+  --surface-raised: #ffffff;
+  --line: #e8ddcf;
+  --line-strong: #9c8674;
+  --ink: #2b211d;
+  --ink-muted: #6b5a50;
+  --brand: #6a1f3a;
+  --brand-deep: #4a1628;
+  --on-brand: #f7eee6;
+  --on-brand-muted: #dcc3c9;
+  --copper: #ce5a43;
+  --primary: #b5472f;
+  --primary-hover: #963a25;
+  --on-primary: #fffbf6;
+  --primary-soft: #fbe4dc;
+  --link: #a8412b;
+  --apricot: #f09567;
+  --on-apricot: #2b211d;
+  --apricot-soft: #fce1d0;
+  --apricot-ink: #8a3a1c;
+  --moss: #899063;
+  --on-moss: #fffdf9;
+  --moss-soft: #e7e9d6;
+  --moss-ink: #4f5537;
+  --danger: #a3281f;
+  --danger-soft: #fbe3df;
+  --logo: #6a1f3a;
+  --focus: #6a1f3a;
+  --overlay: rgb(43 20 26 / 0.56);
+  --shadow-sm: 0 1px 2px rgb(74 22 40 / 0.06), 0 2px 8px rgb(74 22 40 / 0.05);
+  --shadow-md: 0 2px 4px rgb(74 22 40 / 0.06), 0 12px 28px -8px rgb(74 22 40 / 0.16);
+  --shadow-lg: 0 24px 60px -16px rgb(74 22 40 / 0.28);
+}
+
+.dark {
+  --bg: #1a1214;
+  --surface: #241a1c;
+  --surface-sunken: #140e0f;
+  --surface-raised: #2e2224;
+  --line: #3d2e2f;
+  --line-strong: #8a7671;
+  --ink: #f5ece4;
+  --ink-muted: #c2b1a7;
+  --brand: #e9a7b9;
+  --brand-deep: #3b1322;
+  --on-brand: #f5ece4;
+  --on-brand-muted: #d4bcc2;
+  --copper: #e8795f;
+  --primary: #e8795f;
+  --primary-hover: #f08e76;
+  --on-primary: #1a1214;
+  --primary-soft: #40211b;
+  --link: #f29a82;
+  --apricot: #f4a57c;
+  --on-apricot: #1a1214;
+  --apricot-soft: #3e2519;
+  --apricot-ink: #f7bea0;
+  --moss: #a9b07f;
+  --on-moss: #1a1214;
+  --moss-soft: #2a2c1e;
+  --moss-ink: #c3c99a;
+  --danger: #f08a7e;
+  --danger-soft: #3a1a18;
+  --logo: #e8795f;
+  --focus: #f4a57c;
+  --overlay: rgb(8 4 5 / 0.72);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 2px 4px rgb(0 0 0 / 0.4), 0 12px 28px -8px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 24px 60px -16px rgb(0 0 0 / 0.7);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-raised: var(--surface-raised);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-on-brand: var(--on-brand);
+  --color-on-brand-muted: var(--on-brand-muted);
+  --color-copper: var(--copper);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-link: var(--link);
+  --color-apricot: var(--apricot);
+  --color-on-apricot: var(--on-apricot);
+  --color-apricot-soft: var(--apricot-soft);
+  --color-apricot-ink: var(--apricot-ink);
+  --color-moss: var(--moss);
+  --color-on-moss: var(--on-moss);
+  --color-moss-soft: var(--moss-soft);
+  --color-moss-ink: var(--moss-ink);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-logo: var(--logo);
+  --color-focus: var(--focus);
+  --color-overlay: var(--overlay);
+  --font-sans: "Readex Pro Variable", "Readex Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces", "Amiri", Georgia, serif;
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --radius-arch: 999px 999px 28px 28px;
+}
+
+@layer base {
+  html {
+    @apply bg-bg text-ink antialiased;
+    font-size: 100%;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+  html[lang="ar"] .tracking-tight,
+  html[lang="ar"] .tracking-tighter,
+  html[lang="ar"] .eyebrow {
+    letter-spacing: 0;
+  }
+  html[lang="ar"] .font-display {
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  /* Slightly smaller UI on laptops and desktops (everything is rem-based) */
+  @media (min-width: 1024px) {
+    html {
+      font-size: 90%;
+    }
+  }
+  body {
+    @apply min-h-[100dvh];
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--apricot-soft);
+  }
+  h1,
+  h2,
+  .font-display {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 50;
+  }
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-md);
+}
+
+/* The signature shape: fully rounded top, soft feet (a nod to Maghrebi doorways). */
+.arch {
+  border-radius: 999px 999px 28px 28px;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+html[lang="ar"] .eyebrow {
+  text-transform: none;
+}
+
+/* One highlighted phrase per headline: italic copper. */
+.mark {
+  color: var(--copper);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.35);
+  }
+}
+.wave-bar {
+  animation: wave 1.1s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.mic-pulse {
+  animation: mic-pulse 1.6s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-bar,
+  .mic-pulse {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
