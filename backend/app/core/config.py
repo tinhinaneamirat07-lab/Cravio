@@ -27,14 +27,19 @@ class Settings(BaseSettings):
     groq_base_url: str = "https://api.groq.com/openai/v1"
 
     # Going out (free services, no key): places, photos and weather. Tests point these at fakes.
-    overpass_url: str = "https://overpass-api.de/api/interpreter"
+    # Overpass servers, tried in order: the free public ones are often busy, so we fall back to mirrors.
+    overpass_urls: Annotated[list[str], NoDecode] = [
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.private.coffee/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter",
+    ]
     open_meteo_url: str = "https://api.open-meteo.com/v1/forecast"
     commons_api_url: str = "https://commons.wikimedia.org/w/api.php"
     wikidata_api_url: str = "https://www.wikidata.org/w/api.php"
     wikipedia_api_url: str = "https://{lang}.wikipedia.org/w/api.php"
     wikidata_sparql_url: str = "https://query.wikidata.org/sparql"
 
-    @field_validator("cors_origins", mode="before")
+    @field_validator("cors_origins", "overpass_urls", mode="before")
     @classmethod
     def split_origins(cls, value: object) -> object:
         if isinstance(value, str):

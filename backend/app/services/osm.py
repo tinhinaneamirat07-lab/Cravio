@@ -123,10 +123,19 @@ def to_place(el: dict) -> OsmPlace | None:
 
 
 def _overpass(ql: str) -> list[dict]:
-    with http.client(timeout=TIMEOUT_SECONDS) as c:
-        res = c.post(get_settings().overpass_url, data={"data": ql})
-        res.raise_for_status()
-        return res.json().get("elements", [])
+    """Ask Overpass. The public servers are free and often full (HTTP 429, 502, 504):
+    when one is busy or slow we try the next mirror, and give up only if they all fail."""
+    last: Exception | None = None
+    # 5 s to connect: a server that does not answer is skipped quickly.
+    with http.client(timeout=httpx.Timeout(TIMEOUT_SECONDS, connect=5)) as c:
+        for url in get_settings().overpass_urls:
+            try:
+                res = c.post(url, data={"data": ql})
+                res.raise_for_status()
+                return res.json().get("elements", [])
+            except (httpx.HTTPError, ValueError) as err:
+                last = err
+    raise last or httpx.HTTPError("No Overpass server configured")
 
 
 # ---------------------------------------------------------------------------

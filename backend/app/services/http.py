@@ -11,5 +11,5 @@ USER_AGENT = "Cravio/0.1 (student portfolio project)"
 transport: httpx.BaseTransport | None = None
 
 
-def client(timeout: float) -> httpx.Client:
+def client(timeout: float | httpx.Timeout) -> httpx.Client:
     return httpx.Client(timeout=timeout, headers={"User-Agent": USER_AGENT}, transport=transport)

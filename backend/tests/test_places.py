@@ -38,7 +38,7 @@ class FakeNet:
         self.calls[host] = self.calls.get(host, 0) + 1
         if host in self.down:
             return httpx.Response(504)
-        if host == "overpass-api.de":
+        if host in ("overpass-api.de", "overpass.private.coffee", "overpass.kumi.systems"):
             ql = dict(httpx.QueryParams(request.content.decode()))["data"]
             if "node(1)" in ql:
                 return httpx.Response(200, json={"elements": [ELEMENTS[0]]})
@@ -136,17 +136,23 @@ def test_nearby_never_stores_the_exact_position(client):
 
 
 def test_overpass_down(client, net):
-    net.down.add("overpass-api.de")
-    assert nearby(client).status_code == 503  # nothing saved yet
+    net.down.update({"overpass-api.de", "overpass.private.coffee", "overpass.kumi.systems"})
+    assert nearby(client).status_code == 503  # every server down and nothing saved yet
 
     net.down.clear()
     nearby(client)
     with SessionLocal() as db:  # make the area old, then break Overpass again
         db.scalar(select(AreaSearch)).searched_at = utcnow() - timedelta(days=8)
         db.commit()
-    net.down.add("overpass-api.de")
+    net.down.update({"overpass-api.de", "overpass.private.coffee", "overpass.kumi.systems"})
     stale = nearby(client).json()
     assert stale["stale"] is True and stale["total"] == 3  # old places are better than nothing
+
+
+def test_busy_overpass_falls_back_to_a_mirror(client, net):
+    net.down.add("overpass-api.de")  # the main server is full
+    res = nearby(client).json()
+    assert res["total"] == 3 and net.calls["overpass.private.coffee"] == 1
 
 
 def test_nearby_validates_input(client):
