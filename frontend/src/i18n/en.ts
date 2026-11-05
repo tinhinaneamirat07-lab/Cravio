@@ -27,13 +27,12 @@ const en: Messages = {
     cta: 'Meanwhile, shall we cook?',
   },
   hero: {
-    eyebrow: 'Your cooking assistant, in 3 languages',
+    eyebrow: 'Home cooking and going out in Algeria',
     trust: { free: 'Free, no card needed', recipes: '300+ recipes' },
-    title: 'Your week of meals, planned in two minutes.',
-    highlight: 'two minutes',
+    title: { lead: 'Do we', cook: 'cook', mid: 'or', go: 'go out', end: 'tonight?' },
     subtitle:
-      'Tell Cravio what’s in your fridge. It builds your menu and shopping list, then guides you by voice.',
-    secondary: 'Browse recipes',
+      'Recipes with what’s in your fridge, or the good spots around you. Ask Cravio in French, English, Arabic or Darija.',
+    ask: 'Ask Cravio…',
     imageAlt: 'A bowl of chorba frik served with bourek',
     card: {
       day: 'Tuesday, dinner',

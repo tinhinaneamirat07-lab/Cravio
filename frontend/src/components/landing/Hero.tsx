@@ -1,9 +1,8 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { useTranslation } from 'react-i18next'
-import { ButtonLink } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
-import { Highlight } from '@/components/ui/Highlight'
-import { ArrowRight, BowlFood, CheckCircle, Sparkle, Translate } from '@/components/ui/icons'
+import { BowlFood, CheckCircle, CookingPot, MapPin, Sparkle, Translate } from '@/components/ui/icons'
+import { Link } from 'react-router-dom'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -28,21 +27,50 @@ export function Hero() {
           </motion.p>
           <motion.h1
             {...enter(0.05)}
-            className="text-[2.5rem] leading-[1.1] font-semibold tracking-tight text-balance md:text-6xl lg:text-[4rem] lg:leading-[1.06]"
+            className="text-[2.75rem] leading-[1.06] font-medium tracking-tight text-balance md:text-6xl lg:text-[4.5rem]"
           >
-            <Highlight text={t('hero.title')} part={t('hero.highlight')} stroke />
+            {t('hero.title.lead')} <em className="text-link">{t('hero.title.cook')}</em> {t('hero.title.mid')}{' '}
+            <em className="relative text-moss">
+              {t('hero.title.go')}
+              {/* Blueberry underline that draws itself under "sort" */}
+              <motion.span
+                aria-hidden="true"
+                initial={reduce ? false : { scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.6, delay: 0.5, ease }}
+                className="absolute inset-x-0 bottom-1 -z-10 h-2 origin-left rounded-full bg-apricot rtl:origin-right"
+              />
+            </em>{' '}
+            {t('hero.title.end')}
           </motion.h1>
           <motion.p {...enter(0.1)} className="max-w-[46ch] text-lg leading-relaxed text-ink-muted">
             {t('hero.subtitle')}
           </motion.p>
-          <motion.div {...enter(0.2)} className="flex flex-wrap items-center gap-3">
-            <ButtonLink to="/register" size="lg">
-              {t('nav.start')}
-              <ArrowRight size={18} className="rtl:-scale-x-100" />
-            </ButtonLink>
-            <ButtonLink to="/explore" size="lg" variant="secondary">
-              {t('hero.secondary')}
-            </ButtonLink>
+          {/* The two doors of the app, each in its own color */}
+          <motion.div {...enter(0.2)} className="grid w-full max-w-md grid-cols-2 gap-3">
+            <Link
+              to="/explore"
+              className="fig lift flex h-28 flex-col justify-between bg-primary p-4 text-on-primary hover:bg-primary-hover"
+            >
+              <CookingPot size={26} />
+              <span className="text-lg font-semibold">{t('nav.cook')}</span>
+            </Link>
+            <Link to="/go" className="fig-go lift flex h-28 flex-col justify-between bg-moss p-4 text-on-moss">
+              <MapPin size={26} />
+              <span className="text-lg font-semibold">{t('nav.go')}</span>
+            </Link>
+          </motion.div>
+          <motion.div {...enter(0.25)} className="w-full max-w-md">
+            <Link
+              to="/assistant"
+              className="flex h-14 items-center gap-3 rounded-full border border-line-strong bg-surface ps-5 pe-2 text-ink-muted hover:bg-surface-raised"
+            >
+              <Sparkle size={20} className="text-brand" />
+              <span className="flex-1">{t('hero.ask')}</span>
+              <span className="ai-ring grid size-10 place-items-center rounded-full bg-brand-deep text-on-brand dark:bg-brand dark:text-bg">
+                <Sparkle size={18} weight="fill" />
+              </span>
+            </Link>
           </motion.div>
           <motion.ul {...enter(0.3)} className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-muted">
             <li className="flex items-center gap-2">
@@ -52,7 +80,7 @@ export function Hero() {
             <li className="flex items-center gap-2">
               <Translate size={18} className="text-moss-ink" />
               <span>
-                Français, English, <span lang="ar">العربية</span>
+                Français, English, <span lang="ar">العربية</span>, Darija
               </span>
             </li>
             <li className="flex items-center gap-2">

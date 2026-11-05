@@ -25,13 +25,12 @@ const fr = {
     cta: 'En attendant, on cuisine ?',
   },
   hero: {
-    eyebrow: 'Ton assistant cuisine, en 3 langues',
+    eyebrow: 'Cuisine maison et sorties en Algérie',
     trust: { free: 'Gratuit, sans carte bancaire', recipes: '300+ recettes' },
-    title: 'Tes repas de la semaine, planifiés en deux minutes.',
-    highlight: 'deux minutes',
+    title: { lead: 'On', cook: 'cuisine', mid: 'ou on', go: 'sort', end: 'ce soir ?' },
     subtitle:
-      'Donne à Cravio le contenu de ton frigo : il prépare ton menu, tes courses et te guide à la voix.',
-    secondary: 'Voir les recettes',
+      'Des recettes avec ce que tu as dans le frigo, ou les bons spots autour de toi. Demande à Cravio en français, en anglais, en arabe ou en darija.',
+    ask: 'Demande à Cravio…',
     imageAlt: 'Un bol de chorba frik servi avec des bourek',
     card: {
       day: 'Mardi, dîner',
