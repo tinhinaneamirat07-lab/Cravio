@@ -11,8 +11,8 @@ Cravio réunit deux projets : **Nuvia** (recettes, frigo, planner, courses, agen
 | Phase | Contenu | État |
 | --- | --- | --- |
 | 0 | Base reprise de Nuvia, renommée Cravio | ✅ |
-| 1 | Design « Figue et cacao », nouvelle navigation, motion | ⏳ |
-| 2 | Back-end : lieux, météo, avis de GoSpot portés vers FastAPI | ⏳ |
+| 1 | Design « Figue et cacao », nouvelle navigation, motion | ✅ |
+| 2 | Back-end : lieux, météo, avis de GoSpot portés vers FastAPI | ✅ |
 | 3 | Pages Sortir, Lieu, Trouver ma sortie ; Accueil et Favoris fusionnés | ⏳ |
 | 4 | Assistant multi-agents (LangGraph : superviseur, Chef, Sorties) | ⏳ |
 | 5 | Documentation, tests, CI | ⏳ |

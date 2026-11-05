@@ -77,3 +77,26 @@ Sur macOS / Linux, remplace `.venv\Scripts\Activate.ps1` par `source .venv/bin/a
 
 Sans clé, l’assistant répond « non configuré » et le reste de l’API fonctionne. Les tests n’appellent jamais Groq.
 Le fonctionnement de l’agent est expliqué dans [docs/AGENT.md](../docs/AGENT.md).
+
+## Sortir : les lieux (repris de GoSpot)
+
+Toutes les routes sont sous `/api/v1`. Les données viennent de services gratuits, sans clé :
+OpenStreetMap (Overpass) pour les lieux, Wikimedia Commons pour les photos, Open-Meteo pour la météo.
+
+| Route | Rôle |
+| --- | --- |
+| `GET /places/nearby?lat&lon&radius&category&limit&offset` | Lieux autour d'un point, du plus proche au plus loin |
+| `GET /places/{id}` | Un lieu, sa note moyenne, favori ou non |
+| `GET /places/{id}/photo` | Photo libre avec auteur et licence (cherchée une seule fois) |
+| `GET/POST /places/{id}/reviews`, `DELETE /places/{id}/reviews/mine` | Avis (un par personne et par lieu) |
+| `GET /places/{id}/info`, `GET /places/info?ids=` | Budget, taille du groupe, menu |
+| `PUT /places/{id}/info`, `POST/DELETE /places/{id}/menu` | Réservé aux admins |
+| `PUT/DELETE /places/{id}/favorite`, `GET /me/places` | Lieux favoris |
+| `GET /weather?lat&lon` | Météo simplifiée : rain, cold, windy, hot, nice, ok |
+
+- **Overpass une fois par zone et par semaine** : la zone (centre arrondi à environ 1 km + rayon) est notée
+  dans `area_searches` ; les visiteurs suivants lisent notre base. Si Overpass est en panne, on renvoie les
+  anciens lieux (`stale: true`).
+- **Vie privée** : la position exacte n'est jamais enregistrée ; la météo reçoit une position arrondie.
+- **Photos** : cherchées en arrière-plan après la réponse, 3 à la fois, 40 au maximum par recherche.
+- **Tests** : `tests/test_places.py` remplace le réseau par un faux (`httpx.MockTransport`), donc aucun appel réel.

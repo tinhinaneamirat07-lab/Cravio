@@ -5,14 +5,14 @@ from slowapi.errors import RateLimitExceeded
 
 from app.core.config import get_settings
 from app.core.rate_limit import limiter
-from app.routers import assistant, auth, planner, recipes, users
+from app.routers import assistant, auth, places, planner, recipes, users, weather
 
 settings = get_settings()
 
 app = FastAPI(
     title="Cravio API",
     version="0.1.0",
-    description="Recipes, meal planning and a cooking assistant, in French, English and Arabic.",
+    description="Cook it or find it: recipes, meal plans, places to go out in Algeria and an assistant (FR, EN, AR).",
     docs_url=None if settings.is_production else "/docs",
     redoc_url=None,
 )
@@ -46,6 +46,8 @@ app.include_router(users.router, prefix=API_PREFIX)
 app.include_router(recipes.router, prefix=API_PREFIX)
 app.include_router(planner.router, prefix=API_PREFIX)
 app.include_router(assistant.router, prefix=API_PREFIX)
+app.include_router(places.router, prefix=API_PREFIX)
+app.include_router(weather.router, prefix=API_PREFIX)
 
 
 @app.get("/api/health", tags=["health"])
